@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+     <style>/* Reset and basic styles */
+        * {
+            /* box-sizing: border-box; */
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f63939d4;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #f63939c9;
+            color: #faf1f1;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        
+
+        
+        .main-nav ul {
+            
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .main-nav ul li {
+            margin-right: 20px;
+        }
+        
+        .main-nav ul li a {
+            color: #f6eeee;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        
+        /* Main content */
+        .main-content {
+            padding-top: 80px; /* adjust based on header height */
+        }
+        
+        .hero {
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .movies {
+            background-color: #fff;
+            padding: 40px 0;
+        }
+        
+        .movies h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        
+        .movie {
+            background-color: #e65c5c;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .movie img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movie h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .movie p {
+            font-size: 1.5em;
+            color: #1d0f0f;
+            margin-bottom: 20px;
+        }
+        
+        .movie .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .movie .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .about, .contact {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .about h2, .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .about p, .contact p {
+            font-size: 1.5em;
+            color: #f7f3f3;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align:center;
+            /* justify-content: center; */
+            padding: 15px 0;
+         position: static; 
+            bottom: 0;
+            width: 100%;
+            display: block;
+            
+        }
+        
+        .footer p {
+            font-size: 1.2em;
+        }</style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">WATCH IT</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Welcome to WATCH IT</h2>
+                <p>Book your tickets for the latest movies now!</p>
+            </div>
+        </section>
+
+        <section id="movies" class="movies">
+            <div class="container">
+                <h2>Now Showing</h2>
+                <div class="movie">
+                    <img src="movie1.jpg" alt="Movie 1">
+                    <h3>KALKI</h3>
+                    <p>Rating: PG-13</p>
+                    <a href="#" class="btn">Book Tickets</a>
+                </div>
+                <div class="movie">
+                    <img src="movie2.jpg" alt="Movie 2">
+                    <h3>INDIAN 2</h3>
+                    <p>Rating: R</p>
+                    <a href="#" class="btn">Book Tickets</a>
+                </div>
+                <!-- More movies -->
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Welcome to Watch It, your ultimate destination for a seamless and enjoyable movie ticket booking experience. Whether you’re a cinephile eager to catch the latest blockbuster or someone looking for a fun night out, Watch It is here to make your movie-going journey effortless and delightful.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Email: contact@watchit.com</p>
+                <p>Phone: +91 90804 83406</p>
+                <footer class="footer">
+                    <div class="container">
+                        <p>&copy; 2024 Movie Ticket Booking. All rights reserved.</p>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+   
+
+</body>
+</html>
