@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1 id="head">TIC-TAC-TOE</h1>
+        </div><div id="main">
+        <div id="cells">
+            <div id="c2" onclick="update(this)"></div>
+            <div id="c3" onclick="update(this)"></div>
+            <div id="c4"onclick="update(this)"></div>
+            <div id="c5"onclick="update(this)"></div>
+            <div id="c6"onclick="update(this)"></div>
+            <div id="c7"onclick="update(this)"></div>
+            <div id="c8"onclick="update(this)"></div>
+            <div id="c9"onclick="update(this)"></div>
+            <script>let currentPlayer = "X";
+                let gameBoard = [];
+                let gameOver = false;
+                
+                // Initialize game board
+                for (let i = 2; i <= 9; i++) {
+                  gameBoard.push("");
+                  document.getElementById(`c${i}`).innerHTML = "";
+                }
+                
+                // Update game board when a cell is clicked
+                function update(cell) {
+                  if (gameOver) return;
+                  if (cell.innerHTML === "") {
+                    cell.innerHTML = currentPlayer;
+                    gameBoard[parseInt(cell.id.slice(1)) - 2] = currentPlayer;
+                    checkWin();
+                    currentPlayer = currentPlayer === "X"? "O" : "X";
+                  }
+                }
+                
+                // Check for win
+                function checkWin() {
+                  const winConditions = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]
+                  ];
+                
+                  for (let i = 0; i < winConditions.length; i++) {
+                    const condition = winConditions[i];
+                    if (
+                      gameBoard[condition[0]] === gameBoard[condition[1]] &&
+                      gameBoard[condition[1]] === gameBoard[condition[2]] &&
+                      gameBoard[condition[0]]!== ""
+                    ) {
+                      gameOver = true;
+                      alert(`Player ${gameBoard[condition[0]]} wins!`);
+                      return;
+                    }
+                  }
+                
+                  // Check for draw
+                  if (!gameBoard.includes("")) {
+                    gameOver = true;
+                    alert("It's a draw!");
+                  }
+                }
+                
+                // Reset game
+                document.getElementById("btn").addEventListener("click", () => {
+                  gameOver = false;
+                  currentPlayer = "X";
+                  gameBoard = [];
+                  for (let i = 2; i <= 9; i++) {
+                    gameBoard.push("");
+                    document.getElementById(`c${i}`).innerHTML = "";
+                  }
+                });</script>
+        </div></div>
+        <div id="reset">
+            <button type="button" id="btn" onclick="window.location.reload()">Reset</button>
+        </div>
+ </div>
+ <style>
+    *{
+        border: 0%;
+        padding: 0%;
+        margin: 0%;}
+       
+    body{
+        background-image: url("https://media.istockphoto.com/id/1160542809/vector/seamless-vector-xo-pattern-chaotic-black-cross-and-zero-elements-on-white-background.jpg?s=612x612&w=0&k=20&c=UHf48Qmo6T8q2IfHvYpt-pQOZcSLEB6JSzDyd46Kqjk=");
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+         display: flex;
+        justify-content: center;
+        align-items: center; 
+        
+    }
+    #header{
+        background-color: rgba(0, 0, 0, 0.815);
+        width: 100vw;
+        color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+}
+#main{
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    background-color: rgba(239, 8, 8, 0.351);
+} 
+#cells{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: grid;
+    height: 50vh;
+width: 50vh;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    background-color: rgba(3, 20, 14, 0.819);
+    margin-left: 8px;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    
+}
+   
+#cells div{
+    border: 2px solid black;
+}
+#reset{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.815);
+    padding: 20px;
+    
+}
+#btn{
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size:larger;
+    background-color: rgba(255, 255, 255, 0.751);
+}
+#btn:hover{
+    color: white;
+    background-color:  rgba(0, 0, 0, 0.53);
+}
+@media only screen and (max-width:320px){#main{
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    background-color: rgba(239, 8, 8, 0.351);
+} }
+
+
+ </style>
+  
+</body>
+</html>
